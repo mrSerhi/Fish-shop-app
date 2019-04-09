@@ -3,8 +3,8 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 // Header, Order, Inventory
 import StorePicker from "./components/StorePicker";
-import NotFound from "./components/NotFound/NotFound";
-import ShopDescboard from "./components/ShopDescboard/ShopDeacboard";
+import NotFound from "./components/Pages/NotFound/NotFound";
+import ShopDescboard from "./components/ShopDescboard/ShopDescboard";
 
 class App extends Component {
   render() {

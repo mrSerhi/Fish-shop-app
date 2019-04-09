@@ -3,11 +3,11 @@ import React from "react";
 // components
 import ProductForm from "./ProductForm/ProductForm";
 
-const Inventory = () => {
+const Inventory = ({ addProduct }) => {
   return (
     <div className="inventory">
-      <ProductForm />
-      <ProductForm />
+      <h2 className="inventory">Inventory</h2>
+      <ProductForm addProduct={addProduct} />
     </div>
   );
 };
