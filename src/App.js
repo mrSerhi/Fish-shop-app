@@ -1,21 +1,21 @@
 import React, { Component } from "react";
-import StorePicker from "./components/StorePicker";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 // Header, Order, Inventory
-import Header from "./components/Header";
-import Order from "./components/Order";
-import Inventory from "./components/Inventory";
+import StorePicker from "./components/StorePicker";
+import NotFound from "./components/NotFound/NotFound";
+import ShopDescboard from "./components/ShopDescboard/ShopDeacboard";
 
 class App extends Component {
   render() {
     return (
-      <div className="catch-of-the-day">
-        <div className="menu">
-          <Header />
-        </div>
-        <Order />
-        <Inventory />
-      </div>
+      <Router>
+        <Switch>
+          <Route exact path="/" component={StorePicker} />
+          <Route path="/store/:store_id" component={ShopDescboard} />
+          <Route component={NotFound} />
+        </Switch>
+      </Router>
     );
   }
 }

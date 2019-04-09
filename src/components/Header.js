@@ -1,6 +1,6 @@
 import React from "react";
 
-const Header = () => {
+const Header = ({ tagline }) => {
   return (
     <header className="top">
       <h1>
@@ -11,7 +11,7 @@ const Header = () => {
         </span>
       </h1>
       <h3 className="tagline">
-        <span>Sea shop manager</span>
+        <span>{tagline}</span>
       </h3>
     </header>
   );
