@@ -8,6 +8,7 @@ import Header from "../Header";
 import Order from "../Order";
 import Inventory from "../Inventory/Inventory";
 import Layout from "../Layout/Layout";
+import ProductsList from "../ProductsList/ProductsList";
 
 class ShopDescboard extends Component {
   state = {
@@ -28,9 +29,12 @@ class ShopDescboard extends Component {
   };
 
   render() {
+    const { products } = this.state;
     return (
       <Layout>
-        <Header tagline="Shop Sea Products" />
+        <Header tagline="Shop Sea Products">
+          <ProductsList productsItems={products} />
+        </Header>
         <Order />
         <Inventory
           addProduct={this.handleaddProducts}
