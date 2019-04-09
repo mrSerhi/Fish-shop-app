@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import { formatPrice } from "../../../assets/helpers";
 
-const ProductListItem = ({ item }) => {
+const ProductListItem = ({ item, onAddToOrders }) => {
   const { title, price, status, desc, image } = item;
   const changeBtnLabel = status ? "Buy Now!" : "Sold Out!";
   return (
@@ -13,7 +13,9 @@ const ProductListItem = ({ item }) => {
         <span className="price">{formatPrice(price)}</span>
       </h3>
       <p>{desc}</p>
-      <button disabled={!status}>{changeBtnLabel}</button>
+      <button onClick={() => onAddToOrders(title)} disabled={!status}>
+        {changeBtnLabel}
+      </button>
     </li>
   );
 };

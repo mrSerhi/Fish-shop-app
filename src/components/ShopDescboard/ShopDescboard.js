@@ -5,7 +5,7 @@ import { getProductItems } from "../../api/sample-fishes";
 
 // components
 import Header from "../Header";
-import Order from "../Order";
+import Order from "../Order/Order";
 import Inventory from "../Inventory/Inventory";
 import Layout from "../Layout/Layout";
 import ProductsList from "../ProductsList/ProductsList";
@@ -13,12 +13,19 @@ import ProductsList from "../ProductsList/ProductsList";
 class ShopDescboard extends Component {
   state = {
     products: [],
-    order: {}
+    orders: {}
   };
 
   handleaddProducts = order => {
     const products = [...this.state.products, order];
     this.setState({ products });
+  };
+
+  handleAddOrderClick = title => {
+    const orders = { ...this.state.orders };
+    orders[title] = orders[title] + 1 || 1;
+
+    this.setState({ orders });
   };
 
   loadMoreProducts = () => {
@@ -29,13 +36,16 @@ class ShopDescboard extends Component {
   };
 
   render() {
-    const { products } = this.state;
+    const { products, orders } = this.state;
     return (
       <Layout>
         <Header tagline="Shop Sea Products">
-          <ProductsList productsItems={products} />
+          <ProductsList
+            productsItems={products}
+            onAddToOrders={this.handleAddOrderClick}
+          />
         </Header>
-        <Order />
+        <Order products={products} orders={orders} />
         <Inventory
           addProduct={this.handleaddProducts}
           getMoreProductItems={this.loadMoreProducts}
