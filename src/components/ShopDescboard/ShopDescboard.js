@@ -1,5 +1,8 @@
 import React, { Component } from "react";
 
+// fake API
+import { getProductItems } from "../../api/sample-fishes";
+
 // components
 import Header from "../Header";
 import Order from "../Order";
@@ -17,12 +20,22 @@ class ShopDescboard extends Component {
     this.setState({ products });
   };
 
+  loadMoreProducts = () => {
+    const resivesProductsItems = getProductItems();
+    const products = [...this.state.products, ...resivesProductsItems];
+
+    this.setState({ products });
+  };
+
   render() {
     return (
       <Layout>
         <Header tagline="Shop Sea Products" />
         <Order />
-        <Inventory addProduct={this.handleaddProducts} />
+        <Inventory
+          addProduct={this.handleaddProducts}
+          getMoreProductItems={this.loadMoreProducts}
+        />
       </Layout>
     );
   }
