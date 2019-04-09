@@ -4,6 +4,7 @@ import { formatPrice } from "../../../assets/helpers";
 
 const ProductListItem = ({ item }) => {
   const { title, price, status, desc, image } = item;
+  const changeBtnLabel = status ? "Buy Now!" : "Sold Out!";
   return (
     <li className="menu-fish">
       <img src={image} alt="title" />
@@ -12,7 +13,7 @@ const ProductListItem = ({ item }) => {
         <span className="price">{formatPrice(price)}</span>
       </h3>
       <p>{desc}</p>
-      <button>Buy Now!</button>
+      <button disabled={!status}>{changeBtnLabel}</button>
     </li>
   );
 };

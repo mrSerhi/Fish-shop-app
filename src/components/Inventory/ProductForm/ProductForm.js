@@ -12,7 +12,7 @@ class ProductForm extends Component {
     e.preventDefault();
     const title = this.titleRef.current.value;
     const price = parseFloat(this.priceRef.current.value);
-    const status = this.statusRef.current.value === "available" ? true : false;
+    const status = this.statusRef.current.value === "available";
     const desc = this.descRef.current.value;
     const image = this.imageRef.current.value;
     const order = {
