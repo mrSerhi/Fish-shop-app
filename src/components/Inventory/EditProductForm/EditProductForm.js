@@ -49,7 +49,8 @@ class EditProductForm extends Component {
 }
 
 EditProductForm.propTypes = {
-  item: PropTypes.object.isRequired
+  item: PropTypes.object.isRequired,
+  onEdit: PropTypes.func.isRequired
 };
 
 export default EditProductForm;

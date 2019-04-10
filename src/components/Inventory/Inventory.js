@@ -28,7 +28,8 @@ const Inventory = ({
 };
 
 Inventory.propTypes = {
-  getMoreProductItems: PropTypes.func.isRequired
+  getMoreProductItems: PropTypes.func.isRequired,
+  productsItems: PropTypes.array.isRequired
 };
 
 export default Inventory;
