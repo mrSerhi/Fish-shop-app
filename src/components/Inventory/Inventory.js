@@ -9,10 +9,18 @@ const Inventory = ({
   productsItems,
   addProduct,
   getMoreProductItems,
-  onEdit
+  onEdit,
+  onRemove
 }) => {
   const renderEditForms = productsItems.map(item => {
-    return <EditProductForm key={item.id} item={item} onEdit={onEdit} />;
+    return (
+      <EditProductForm
+        key={item.id}
+        item={item}
+        onEdit={onEdit}
+        onRemove={onRemove}
+      />
+    );
   });
 
   return (

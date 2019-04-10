@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 // components
 import OrderListItem from "./OrderListItem/OrderListItem";
 
-const OrderList = ({ products, orders }) => {
+const OrderList = ({ products, orders, onRemove }) => {
   const renderListItems = Object.keys(orders).map(key => {
     const index = products.findIndex(pr => pr.title === key);
     const countNumber = orders[key];
@@ -16,6 +16,8 @@ const OrderList = ({ products, orders }) => {
         available={available}
         countNumber={countNumber}
         currentProduct={products[index]}
+        index={key}
+        onRemoveOrder={onRemove}
       />
     );
   });

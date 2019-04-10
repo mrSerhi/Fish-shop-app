@@ -36,6 +36,20 @@ class ShopDescboard extends Component {
     this.setState({ products });
   };
 
+  handleRemoveProduct = prodactId => {
+    const products = [...this.state.products];
+    const filtered = products.filter(p => p.id !== prodactId);
+
+    this.setState({ products: filtered });
+  };
+
+  handleRemoveOrder = orderIndex => {
+    const orders = { ...this.state.orders };
+    delete orders[orderIndex];
+
+    this.setState({ orders });
+  };
+
   loadMoreProducts = () => {
     const resivesProductsItems = getProductItems();
     const products = [...this.state.products, ...resivesProductsItems];
@@ -53,12 +67,17 @@ class ShopDescboard extends Component {
             onAddToOrders={this.handleAddOrderClick}
           />
         </Header>
-        <Order products={products} orders={orders} />
+        <Order
+          products={products}
+          orders={orders}
+          onRemove={this.handleRemoveOrder}
+        />
         <Inventory
           productsItems={products}
           addProduct={this.handleaddProducts}
           getMoreProductItems={this.loadMoreProducts}
           onEdit={this.handleUpdateProduct}
+          onRemove={this.handleRemoveProduct}
         />
       </Layout>
     );

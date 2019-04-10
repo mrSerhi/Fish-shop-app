@@ -5,7 +5,7 @@ import { PropTypes } from "prop-types";
 // components
 import OrderList from "./OrderList/OrderList";
 
-const Order = ({ products, orders }) => {
+const Order = ({ products, orders, onRemove }) => {
   // getting the total price of added orders
   const total = Object.keys(orders).reduce((total, curr) => {
     const index = products.findIndex(pr => pr.title === curr);
@@ -21,7 +21,7 @@ const Order = ({ products, orders }) => {
     <div className="order-wrap">
       <h2>Orders</h2>
 
-      <OrderList products={products} orders={orders} />
+      <OrderList products={products} orders={orders} onRemove={onRemove} />
 
       <div className="total">
         Total: <strong>{formatPrice(total)}</strong>

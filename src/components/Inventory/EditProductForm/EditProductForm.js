@@ -10,7 +10,7 @@ class EditProductForm extends Component {
   };
 
   render() {
-    const { title, price, status, desc, image } = this.props.item;
+    const { id, title, price, status, desc, image } = this.props.item;
 
     return (
       <div className="fish-edit">
@@ -42,7 +42,9 @@ class EditProductForm extends Component {
           type="text"
         />
 
-        <button type="submit">Remove product</button>
+        <button onClick={() => this.props.onRemove(id)} type="button">
+          Remove product
+        </button>
       </div>
     );
   }
@@ -50,7 +52,8 @@ class EditProductForm extends Component {
 
 EditProductForm.propTypes = {
   item: PropTypes.object.isRequired,
-  onEdit: PropTypes.func.isRequired
+  onEdit: PropTypes.func.isRequired,
+  onRemove: PropTypes.func.isRequired
 };
 
 export default EditProductForm;
