@@ -28,6 +28,14 @@ class ShopDescboard extends Component {
     this.setState({ orders });
   };
 
+  handleUpdateProduct = order => {
+    const products = [...this.state.products];
+    const index = products.findIndex(p => p.id === order.id);
+    products[index] = order;
+
+    this.setState({ products });
+  };
+
   loadMoreProducts = () => {
     const resivesProductsItems = getProductItems();
     const products = [...this.state.products, ...resivesProductsItems];
@@ -47,8 +55,10 @@ class ShopDescboard extends Component {
         </Header>
         <Order products={products} orders={orders} />
         <Inventory
+          productsItems={products}
           addProduct={this.handleaddProducts}
           getMoreProductItems={this.loadMoreProducts}
+          onEdit={this.handleUpdateProduct}
         />
       </Layout>
     );

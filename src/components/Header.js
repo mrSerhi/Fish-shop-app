@@ -14,7 +14,6 @@ const Header = ({ tagline, children }) => {
         <h3 className="tagline">
           <span>{tagline}</span>
         </h3>
-        {}
       </header>
 
       {children}

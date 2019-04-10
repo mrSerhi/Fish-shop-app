@@ -1,5 +1,6 @@
 import React from "react";
 import { formatPrice } from "../../assets/helpers";
+import { PropTypes } from "prop-types";
 
 // components
 import OrderList from "./OrderList/OrderList";
@@ -9,7 +10,7 @@ const Order = ({ products, orders }) => {
   const total = Object.keys(orders).reduce((total, curr) => {
     const index = products.findIndex(pr => pr.title === curr);
     const countNumber = orders[curr];
-    const available = products[index].status;
+    const available = products[index].status === "available";
 
     if (available) return total + products[index].price * countNumber;
 
@@ -27,6 +28,11 @@ const Order = ({ products, orders }) => {
       </div>
     </div>
   );
+};
+
+Order.propTypes = {
+  products: PropTypes.array.isRequired,
+  orders: PropTypes.object.isRequired
 };
 
 export default Order;
