@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { TransitionGroup, CSSTransition } from "react-transition-group";
 
 // components
 import OrderListItem from "./OrderListItem/OrderListItem";
@@ -11,18 +12,29 @@ const OrderList = ({ products, orders, onRemove }) => {
     const available = products[index].status === "available";
 
     return (
-      <OrderListItem
-        key={key + Math.random() * 100}
-        available={available}
-        countNumber={countNumber}
-        currentProduct={products[index]}
-        index={key}
-        onRemoveOrder={onRemove}
-      />
+      <CSSTransition
+        classNames="order"
+        key={key}
+        timeout={{ enter: 500, exit: 500 }}
+      >
+        <OrderListItem
+          key={key}
+          available={available}
+          countNumber={countNumber}
+          currentProduct={products[index]}
+          index={key}
+          onRemoveOrder={onRemove}
+        />
+      </CSSTransition>
     );
   });
 
-  return <ul className="order">{renderListItems}</ul>;
+  // return <ul className="order">{renderListItems}</ul>;
+  return (
+    <TransitionGroup component="ul" className="order">
+      {renderListItems}
+    </TransitionGroup>
+  );
 };
 
 OrderList.propTypes = {

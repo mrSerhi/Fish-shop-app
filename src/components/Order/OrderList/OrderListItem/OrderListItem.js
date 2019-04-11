@@ -1,5 +1,6 @@
 import React from "react";
 import { formatPrice } from "../../../../assets/helpers";
+import { TransitionGroup, CSSTransition } from "react-transition-group";
 
 const OrderListItem = ({
   available,
@@ -8,12 +9,24 @@ const OrderListItem = ({
   index,
   onRemoveOrder
 }) => {
+  const transitionOptions = {
+    key: countNumber,
+    classNames: "count",
+    timeout: { enter: 500, exit: 500 }
+  };
   if (available) {
     return (
       <li>
-        {countNumber} lbs {title}
-        {formatPrice(countNumber * price)}
-        <button onClick={() => onRemoveOrder(index)}>&times;</button>
+        <span>
+          <TransitionGroup component="span" className="count">
+            <CSSTransition {...transitionOptions}>
+              <span>{countNumber}</span>
+            </CSSTransition>
+          </TransitionGroup>
+          lbs {title}
+          {formatPrice(countNumber * price)}
+          <button onClick={() => onRemoveOrder(index)}>&times;</button>
+        </span>
       </li>
     );
   } else {
