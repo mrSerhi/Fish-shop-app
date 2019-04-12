@@ -4,7 +4,7 @@ self.__precacheManifest = [
     "url": "/Fish-shop-app/static/media/haymaker-webfont.e9535f20.ttf"
   },
   {
-    "revision": "7611d6f0a643b594cdfc",
+    "revision": "4b3dd24b9d53d4fa7dc2",
     "url": "/Fish-shop-app/static/css/main.230df702.chunk.css"
   },
   {
@@ -28,8 +28,8 @@ self.__precacheManifest = [
     "url": "/Fish-shop-app/static/media/anchor.d2f8799a.svg"
   },
   {
-    "revision": "7611d6f0a643b594cdfc",
-    "url": "/Fish-shop-app/static/js/main.7c6766eb.chunk.js"
+    "revision": "4b3dd24b9d53d4fa7dc2",
+    "url": "/Fish-shop-app/static/js/main.5afafaa2.chunk.js"
   },
   {
     "revision": "cf798e30eda73d84b25c4ae233fe5e21",
@@ -52,7 +52,7 @@ self.__precacheManifest = [
     "url": "/Fish-shop-app/static/media/blanch_caps_inline-webfont.7bbffda6.svg"
   },
   {
-    "revision": "d1bf5509c70b50d14b521ea0dac3132d",
+    "revision": "247e120607a5c898d17fc2db456e83cf",
     "url": "/Fish-shop-app/index.html"
   }
 ];
